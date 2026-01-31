@@ -5,6 +5,10 @@ This repository contains the final project figures split into one file per subfi
 Group
 - Group number: 6
 
+Project overview
+- Goal: present model performance and downstream analyses via clear, publication-style figures.
+- Scope: two composite figures (Fig 1 and Fig 5), decomposed into individual subpanels for reproducibility.
+
 Structure
 - `figs/fig1/` contains Fig 1 subpanels (a, b, c).
 - `figs/fig5/` contains Fig 5 subpanels (a through l).
@@ -24,6 +28,31 @@ Dependencies
 - numpy
 - matplotlib
 - matplotlib-venn (for Venn diagrams in Fig 5j/k/l)
+
+Data and inputs
+- All numeric values used in the plots are embedded directly in each `plot.py`.
+- There are no external data files required to regenerate the figures.
+
+Methods (by figure)
+Fig 1
+- (a) Grouped bar chart for carbon emissions and water consumption across model scales.
+- (b) Bubble chart for training phase resources (carbon vs water), bubble size scales with total usage.
+- (c) Bubble chart for data size vs training tokens; legend aligned to avoid overlap.
+
+Fig 5
+- (a-d) Bar charts comparing accuracy, F1-score, precision, and recall for six models.
+- (e) Horizontal bars for total vs structural counts across thresholds, with side panel for delta ratios.
+- (f-g) Line charts for TM>0 and 7TM ratios vs prediction threshold, including value labels.
+- (h-i) Pie charts for category distributions (ProteinSage, ESM-2).
+- (j-k) Venn3 diagrams comparing BLAST/MMseqs2 with model outputs.
+- (l) Venn2 diagram comparing ProteinSage vs ESM-2 overlap.
+
+Reproducibility
+- Install dependencies: `pip install -r requirements.txt`
+- Run any subpanel script, for example:
+  - `python figs/fig1/a-development/plot.py`
+  - `python figs/fig5/e-threshold-comparison/plot.py`
+- Output PNGs are written into the same subpanel folder.
 
 Documentation
 - Each subfigure folder includes a `README.md` describing the plot and how to run it.
